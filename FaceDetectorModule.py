@@ -50,7 +50,7 @@ def main():
     while True:   
         success, img = cap.read()    
         img, bboxs = detector.findFaces(img)  
-        print(bboxs) 
+        # print(bboxs) 
         cTime = time.time()   
         fps = 1 / (cTime - pTime) 
         pTime = cTime  
