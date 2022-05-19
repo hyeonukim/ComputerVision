@@ -1,6 +1,3 @@
-from json import detect_encoding
-from re import T
-from socket import AI_CANONNAME
 import cv2
 import mediapipe as mp
 import time
@@ -12,7 +9,7 @@ import HandTrackingModule as hm
 def popup(msg):
     popup = tk.Tk()
     popup.wm_title("Result")
-    popup.geometry("300x100")
+    popup.geometry("500x100")
     label = tk.Label(popup, text=msg)
     label.pack(side="top", fill="x", pady=10)
     B1= tk.Button(popup, text="Okay", command = popup.destroy)
@@ -35,7 +32,7 @@ player = -1
 end = time.time() + 5
 while True:
     success, img = cap.read()
-    img = detector.findHands(img)
+    img = detector.findHands(img, draw=False)
     lmList = detector.findPosition(img, draw=False)
             
     cTime = time.time()
